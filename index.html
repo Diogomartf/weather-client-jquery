@@ -5,7 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/weather-icons.min.css">
 	<title>Weather</title>
 </head>
 <body>
@@ -13,7 +14,10 @@
 			<h1 class="center-align">Weather</h1>
 			<h4 class="center-align">Find out the current weather</h4>
 			<input type="text" id="city_name", placeholder="City name"/>
-			<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+			<button class="btn waves-effect waves-light" onclick="getWeather($('#city_name').val())" >Current Weather
+			    <i class="material-icons right">cloud</i>
+		    </button>
+		    <button class="btn waves-effect waves-light" onclick="getForecast($('#city_name').val())">5 day forecast
 			    <i class="material-icons right">cloud</i>
 		    </button>
 			<div class="weather" id="weather">
@@ -46,6 +50,79 @@
 				</div>	 
 			</div>
 	</div>
+	<div class="container" id="forecast">
+			<h4 class="center-align grey-text">5 days forecast</h4>
+			<div class="forecast">
+				<div class="row">	
+					<div class="col s6 m2">
+						<div class="card  teal lighten-4 z-depth-1">
+		           <div class="card-content white-text">
+		             	<span class="card-title" id="icon1">Day 1</span>
+										<p >Temperature</p>
+										<p class="teal-text" id="day1"></p>
+										<p>Humidity</p>
+										<p class="teal-text" id="humidity1"></p>
+										<p>Description</p>
+										<p class="teal-text" id="description1"></p>
+		           	</div>
+			       </div>
+		      </div>
+		      <div class="col s6 m2">
+						<div class="card  teal lighten-4 z-depth-1">
+		           <div class="card-content white-text">
+		             	<span class="card-title " id="icon2">Day 2</span>
+		              <p>Temperature</p>
+									<p  class="teal-text" id="day2"></p>
+									<p >Humidity</p>
+									<p class="teal-text" id="humidity2"></p>
+									<p >Description</p>
+									<p class="teal-text" id="description2"></p>
+		           	</div>
+			       </div>
+		      </div>
+		      <div class="col s6 m2">
+						<div class="card teal lighten-4 z-depth-1">
+		           <div class="card-content white-text">
+		             	<span class="card-title" id="icon3">Day 3</span>
+		             	<p>Temperature</p>
+		             	<p class="teal-text" id="day3"></p>
+		             	<p>Humidity</p>
+		             	<p class="teal-text" id="humidity3"></p>
+		             	<p>Description</p>
+		             	<p class="teal-text" id="description3"></p>
+		           	</div>
+			       </div>
+		      </div>
+		      <div class="col s6 m2">
+						<div class="card teal lighten-4 z-depth-1">
+		           <div class="card-content white-text">
+		             	<span class="card-title" id="icon4">Day 4</span>
+		             	<p>Temperature</p>
+		             	<p class="teal-text" id="day4"></p>
+		             	<p>Humidity</p>
+		             	<p class="teal-text" id="humidity4"></p>
+		             	<p>Description</p>
+		             	<p class="teal-text" id="description4"></p>
+		           	</div>
+			       </div>
+		      </div>
+		      <div class="col s6 m2">
+						<div class="card teal lighten-4 z-depth-1">
+		           <div class="card-content white-text oi">
+		             	<span class="card-title" id="icon5">Day 5</span>
+		             	<p>Temperature</p>
+		             	<p class="teal-text" id="day5"></p>
+		             	<p>Humidity</p>
+		             	<p class="teal-text" id="humidity5"></p>
+		             	<p>Description</p>
+		             	<p class="teal-text" id="description5"></p>
+		           	</div>
+			       </div>
+		      </div>
+				</div>
+			</div>	 
+		</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
