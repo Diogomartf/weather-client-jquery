@@ -6,6 +6,8 @@ function getForecast(city_name) {
     $('#forecast').css({
         display: 'block'
     });
+
+
     
     $.ajax("http://api.openweathermap.org/data/2.5/forecast?",
     {   
@@ -17,6 +19,12 @@ function getForecast(city_name) {
           units: "metric"
         },
         success: function(response) {
+            $( ".wi" ).remove();
+            var deferred = $.Deferred();
+
+           
+           
+
             document.getElementById("day1").innerHTML = response['list'][0].main.temp + " ºC";
             document.getElementById("day2").innerHTML = response['list'][5].main.temp + " ºC";
             document.getElementById("day3").innerHTML = response['list'][10].main.temp + " ºC";
@@ -32,11 +40,14 @@ function getForecast(city_name) {
             document.getElementById("description3").innerHTML = response['list'][10].weather[0].description;
             document.getElementById("description4").innerHTML = response['list'][15].weather[0].description;
             document.getElementById("description5").innerHTML = response['list'][20].weather[0].description;
+             deferred.resolve();
             var cont = 0;
+            deferred.done(function() {
             for(var i = 0; i <= 20; i += 5){
               cont++;
              whatIcon(response['list'][i].weather[0].description, cont);
             }
+            });
         },
         error: function(xhr) {
            alert("Erro");
@@ -75,6 +86,7 @@ function getWeather(city_name) {
 }
 
 function whatIcon(description, i){
+  
   if(description.indexOf("clear") > -1){
       $("#icon".concat(i)).append('<i class="wi wi-day-sunny"></i>');
   }else if(description.indexOf("light rain") > -1){
