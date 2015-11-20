@@ -9,9 +9,8 @@ This is a jquery client of http://openweathermap.org/API
 
 
 
-#### Issues to be addressed
-  * When calling the forecast more than once the older icons continue present.
-
+#### Things to get done 
+  * Refactoring
 
 ### Stuff used to make this:
 
