@@ -19,12 +19,11 @@ function getForecast(city_name) {
           units: "metric"
         },
         success: function(response) {
+            //clean past results
             $( ".wi" ).remove();
             var deferred = $.Deferred();
 
-           
-           
-
+            document.getElementById("cityForecast").innerHTML = city_name;
             document.getElementById("day1").innerHTML = response['list'][0].main.temp + " ºC";
             document.getElementById("day2").innerHTML = response['list'][5].main.temp + " ºC";
             document.getElementById("day3").innerHTML = response['list'][10].main.temp + " ºC";
@@ -42,6 +41,7 @@ function getForecast(city_name) {
             document.getElementById("description5").innerHTML = response['list'][20].weather[0].description;
              deferred.resolve();
             var cont = 0;
+            //after removing select icons
             deferred.done(function() {
             for(var i = 0; i <= 20; i += 5){
               cont++;
